@@ -2,6 +2,10 @@
 
 ## 代码
 
+时间复杂度 $\Theta(n \log n) - \Theta(1)$。
+
+空间复杂度 $\Theta(n \log n)$。
+
 ```cpp
 struct ST {
     int f[MAXN][MAXT];
