@@ -12,4 +12,7 @@
 - Graph Theory 图论
 - Linear Algebra 线性代数
 - Number Theory 数论
+- Poly 多项式
 - String 字符串
+
+若 代码或文字有错误 / 代码有更优美的写法，欢迎 PR。在洛谷上 @ 我也可以。
