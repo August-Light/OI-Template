@@ -1,4 +1,4 @@
-# 炸脖龙 I
+# P3934 [Ynoi2016] 炸脖龙 I
 
 ## 代码
 
@@ -98,7 +98,6 @@ int main() { ios::sync_with_stdio(0); cin.tie(0);
     }
     return 0;
 }
-
 ```
 
 ## 注
