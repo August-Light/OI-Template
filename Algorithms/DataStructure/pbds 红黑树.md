@@ -7,30 +7,27 @@
 空间复杂度 $O(n)$。
 
 ```cpp
-typedef pair<int, ll> pii;
+template<typename Val>
 struct SBT {
+    typedef pair<int, Val> pii;
     tree<pii, null_type, less<pii>, rb_tree_tag, tree_order_statistics_node_update> tr;
     int cnt = 0;
-    void clear() {
-        tr.clear();
-        cnt = 0;
-    }
-    void ins(ll k) {
+    void ins(Val k) {
         tr.insert({k, ++cnt});
     }
-    void del(ll k) {
+    void del(Val k) {
         tr.erase(tr.lower_bound({k, 0}));
     }
-    int rnk(ll k) {
+    int rnk(Val k) {
         return tr.order_of_key({k, 0}) + 1;
     }
-    ll kth(int x) {
+    Val kth(int x) {
         return tr.find_by_order(x - 1)->first;
     }
-    ll pre(ll k) {
+    Val pre(Val k) {
         return kth(rnk(k) - 1);
     }
-    ll nxt(ll k) {
+    Val nxt(Val k) {
         return kth(rnk(k + 1));
     }
 };
@@ -44,6 +41,8 @@ struct SBT {
 #include <bits/extc++.h>
 using namespace __gnu_pbds;
 ```
+
+考场上可能需要 `#include <ext/pb_ds/assoc_container.hpp>`。
 
 ## 模板题目
 

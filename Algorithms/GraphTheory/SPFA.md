@@ -10,24 +10,22 @@ queue<int> q;
 bool inq[MAXN];
 int cnt[MAXN];
 bool SPFA(int s) {
-    for (int u = 1; u <= n; u++)
-        dis[u] = INF;
+    fill(dis, dis+n+1, INF);
     dis[s] = 0;
-    q.push(s); inq[s] = 1; cnt[s]++;
+    q.push(s), inq[s] = 1, cnt[s]++;
     while (!q.empty()) {
-        int u = q.front(); q.pop(); inq[u] = 0;
+        int u = q.front(); q.pop(), inq[u] = 0;
         for (auto [v, w] : G[u]) {
             if (dis[v] > dis[u] + w) {
                 dis[v] = dis[u] + w;
-                if (!inq[v]) {
-                    q.push(v); inq[v] = 1; cnt[v]++;
-                }
-                if (cnt[v] == n + 1)
-                    return 1;
+                if (!inq[v])
+                    q.push(v), inq[v] = 1, cnt[v]++;
+                if (cnt[v] == n+1)
+                    return true;
             }
         }
     }
-    return 0;
+    return false;
 }
 ```
 
@@ -49,4 +47,6 @@ bool SPFA(int s) {
 
 ## debug
 
-`if (cnt[v] == n + 1)` 时才是有负环，而非 `if (cnt[v] == n)`。
+- `if (cnt[v] == n + 1)` 时才是有负环，而非 `if (cnt[v] == n)`。
+- `dis[s]` 要设 $0$。
+- `inq` 有没有和 `q` 的操作同步进行？

@@ -6,11 +6,11 @@
 
 ```cpp
 int dfn[MAXN], low[MAXN], cnt;
-stack<int> st;
-vector<vector<int>> EDCCs;
+vector<int> st;
+vector<vector<int>> EBCCs;
 void Tarjan(int u, int lst) {
     dfn[u] = low[u] = ++cnt;
-    st.push(u);
+    st.push_back(u);
     for (auto [v, i] : G[u]) {
         if (i == (lst ^ 1))
             continue;
@@ -21,12 +21,12 @@ void Tarjan(int u, int lst) {
             low[u] = min(low[u], dfn[v]);
     }
     if (dfn[u] == low[u]) {
-        vector<int> EDCC;
+        vector<int> EBCC;
         int v; do {
-            v = st.top(); st.pop();
-            EDCC.push_back(v);
+            v = st.back(); st.pop_back();
+            EBCC.push_back(v);
         } while (v != u);
-        EDCCs.push_back(EDCC);
+        EBCCs.push_back(EBCC);
     }
 }
 ```

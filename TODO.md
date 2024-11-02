@@ -1,18 +1,18 @@
 - 比较简单，很快就会干的事：
 
-1. 添加 KMP
-2. 添加莫队例题 [Ynoi2017] 由乃的玉米田
-3. 添加势能线段树例题 CF438D
-4. 添加高斯消元
+1. 点双连通分量
+2. Kruskal
 
 - 有点麻烦的事：
 
-1. 添加 exgcd 模板题代码
-2. 添加 exCRT
-3. 添加王室联邦
-4. 添加点双连通分量
+1. exgcd 模板题代码
+2. exCRT
+3. 1log Miller-Rabin
 
 - 会咕咕比较久的事：
 
-1. 添加 Kosaraju
-2. 添加 Johnson
+1. Kosaraju
+2. Johnson
+3. 多重背包单调队列优化
+4. FFT & NTT
+5. Stirling2

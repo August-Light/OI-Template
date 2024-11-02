@@ -8,7 +8,7 @@
 ll dis[MAXN];
 bool vis[MAXN];
 priority_queue<pii, vector<pii>, greater<pii>> pq;
-pair<int, ll> Prim() {
+pair<bool, ll> Prim() {
     int tot = 0;
     ll ans = 0;
     for (int u = 1; u <= n; u++)

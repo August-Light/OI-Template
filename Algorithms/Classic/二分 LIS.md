@@ -7,7 +7,7 @@
 ```cpp
 int f[MAXN], tp;
 int LIS(int a[]) {
-    memset(f, 0x3f, sizeof f);
+    fill(f+1, f+n+1, INF);
     for (int i = 1; i <= n; i++) {
         int pos = lower_bound(f+1, f+tp+1, a[i]) - f;
         f[pos] = a[i];
@@ -26,7 +26,7 @@ int LIS(int a[]) {
 ```cpp
 int f[MAXN], tp;
 int LNDS(int a[]) {
-    memset(f, 0x3f, sizeof f);
+    fill(f+1, f+n+1, INF);
     for (int i = 1; i <= n; i++) {
         int pos = upper_bound(f+1, f+tp+1, a[i]) - f;
         f[pos] = a[i];

@@ -8,17 +8,17 @@
 
 ```cpp
 struct ST {
-    int f[MAXN][MAXT];
-    void build() {
-        for (int i = 1; i <= n; i++)
-            f[i][0] = a[i];
-        for (int j = 1; j <= 18; j++)
-            for (int i = 1; i+(1<<j)-1 <= n; i++)
-                f[i][j] = max(f[i][j-1], f[i+(1<<(j-1))][j-1]);
+    int f[LOGN][MAXN];
+    void init() {
+        rep(i, 1, n)
+            f[0][i] = a[i];
+        for (int i = 1; (1 << i) <= n; i++)
+            for (int j = 1; j + (1 << i) - 1 <= n; j++)
+                f[i][j] = max(f[i-1][j], f[i-1][j + (1 << (i-1))]);
     }
     int query(int l, int r) {
-        int j = __lg(r - l + 1);
-        return max(f[l][j], f[r-(1<<j)+1][j]);
+        int i = __lg(r - l + 1);
+        return max(f[i][l], f[i][r - (1 << i) + 1]);
     }
 };
 ```

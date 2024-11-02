@@ -65,10 +65,10 @@ int main() { ios::sync_with_stdio(0); cin.tie(0);
 $$
 \begin{aligned}
 & \sum\limits_{i=1}^n \sum\limits_{j=1}^m [\gcd(i,j)=1] \\
-&= \sum\limits_{i=1}^n \sum\limits_{j=1}^m \sum\limits_{d|\gcd(i,j)} \mu(d) \\
-&= \sum\limits_{i=1}^n \sum\limits_{j=1}^m \sum\limits_{d=1}^n [d|i][d|j] \mu(d) \\
-&= \sum\limits_{d=1}^n \mu(d) \sum\limits_{i=1}^n \sum\limits_{j=1}^m [d|i][d|j] \\
-&= \sum\limits_{d=1}^n \mu(d) \left\lfloor\dfrac nd \right\rfloor \left\lfloor\dfrac md \right\rfloor
+=& \sum\limits_{i=1}^n \sum\limits_{j=1}^m \sum\limits_{d|\gcd(i,j)} \mu(d) \\
+=& \sum\limits_{i=1}^n \sum\limits_{j=1}^m \sum\limits_{d=1}^n [d|i][d|j] \mu(d) \\
+=& \sum\limits_{d=1}^n \mu(d) \sum\limits_{i=1}^n \sum\limits_{j=1}^m [d|i][d|j] \\
+=& \sum\limits_{d=1}^n \mu(d) \left\lfloor\dfrac nd \right\rfloor \left\lfloor\dfrac md \right\rfloor
 \end{aligned}
 $$
 

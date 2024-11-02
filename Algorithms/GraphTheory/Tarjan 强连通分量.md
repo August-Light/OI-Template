@@ -7,11 +7,11 @@
 ```cpp
 int dfn[MAXN], low[MAXN], cnt;
 bool ins[MAXN];
-stack<int> st;
+vector<int> st;
 vector<vector<int>> SCCs;
 void Tarjan(int u) {
     low[u] = dfn[u] = ++cnt;
-    st.push(u); ins[u] = 1;
+    st.push_back(u); ins[u] = 1;
     for (auto v : G[u])
         if (!dfn[v]) {
             Tarjan(v);
@@ -22,7 +22,7 @@ void Tarjan(int u) {
     if (dfn[u] == low[u]) {
         vector<int> SCC;
         int v; do {
-            v = st.top(); st.pop(); ins[v] = 0;
+            v = st.back(); st.pop_back(); ins[v] = 0;
             SCC.push_back(v);
         } while (v != u);
         SCCs.push_back(SCC);
